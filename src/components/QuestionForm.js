@@ -17,25 +17,10 @@ function QuestionForm(props) {
     });
   }
 
-  function handleSubmit() {
-    fetch("http://localhost:4000/questions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        prompt: formData.prompt,
-        answers: [
-          formData.answer1,
-          formData.answer2,
-          formData.answer3,
-          formData.answer4,
-        ],
-        correctIndex: parseInt(formData.correctIndex),
-      }),
-    });
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(formData);
   }
-
 
   return (
     <section>
